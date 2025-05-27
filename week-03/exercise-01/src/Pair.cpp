@@ -1,4 +1,5 @@
 #include "Pair.h"
+#include <iomanip>
 
 
 namespace seneca
@@ -18,7 +19,7 @@ namespace seneca
 
     std::ostream& operator<<(std::ostream& os, const Pair& pair) {
         
-        os << pair.getKey() << ": " << pair.getValue();
+        os << std::setw(20) << std::right << pair.getKey() << ": " << pair.getValue();
         return os;
     }
 }

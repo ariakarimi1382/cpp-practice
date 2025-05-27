@@ -20,6 +20,8 @@ namespace seneca {
         virtual ~Collection(){};
         Collection(){};
     };
+
+
     template <typename T, unsigned CAPACITY>
     T Collection<T, CAPACITY>::defaultVal{};
 
@@ -37,10 +39,20 @@ namespace seneca {
 
     template<typename T, unsigned CAPACITY>
     void Collection<T, CAPACITY>::display(std::ostream& os){
+        os << "----------------------" << std::endl << "| Collection Content |" << std::endl << "----------------------" << std::endl;
         for (size_t i = 0; i < sizeVal; i++){
             os << array[i] << std::endl;
         }
+        os << "----------------------" << std::endl;
     }
+    // template<>
+    // void Collection<Pair, 100>::display(std::ostream& os){
+    //    for (size_t i = 0; i < sizeVal; i++){
+    //         os << array[i] << std::endl;
+    //     } 
+    // }
+
+
     template<typename T, unsigned CAPACITY>
     T& Collection<T, CAPACITY>::operator[](unsigned i){
         return i < sizeVal ? array[i] : defaultVal;
@@ -57,9 +69,6 @@ namespace seneca {
         }
     }
 }
-
-// ...existing code...
-
 
 
 
